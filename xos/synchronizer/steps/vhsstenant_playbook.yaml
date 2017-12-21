@@ -20,8 +20,5 @@
   connection: ssh
   user: ubuntu
   sudo: yes
-  gather_facts: no
+  tasks:
   vars:
-  roles: 
-    - pre-requirement
-    - hss-configure
