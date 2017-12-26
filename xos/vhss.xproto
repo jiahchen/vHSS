@@ -16,6 +16,6 @@ message VHSSVendor (XOSBase){
 message VHSSTenant (TenantWithContainer){
     option verbose_name = "Virtual Home Subscriber Service Instance";
 
-    optional manytoone vmme_vendor->VHSSVendor:vendor_tenants = 1 [help_text = "select vendor of choice, leave blank for slice default", db_index = True, null = True, blank = True]; 
+    optional manytoone vhss_vendor->VHSSVendor:vendor_tenants = 1 [help_text = "select vendor of choice, leave blank for slice default", db_index = True, null = True, blank = True]; 
 }
 
