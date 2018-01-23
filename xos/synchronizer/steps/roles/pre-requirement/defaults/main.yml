@@ -4,6 +4,8 @@ HSS_HOST: hss.openair4G.eur
 HSS_ALIAS: hss
 HSS_OPERATOR_KEY: '00000000000000000000000000000000'
 
+MME_HOST: nano.openair4G.eur
+
 SIM:
   - ID: 2
     APN: oai.ipv4
