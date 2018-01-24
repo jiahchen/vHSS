@@ -22,5 +22,6 @@
   sudo: yes
   gather_facts: no
   vars:
+    - HSS_S6A_IP: {{ hss_s6a_ip }}
   roles:
     - hss-configure

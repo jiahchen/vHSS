@@ -32,6 +32,8 @@ class SyncVHSSTenant(SyncInstanceUsingAnsible):
     def get_extra_attributes(self, o):
         fields = {}
 
+        fields['hss_s6a_ip'] = self.get_my_ip_address(o, 's6a_network', 's6a_hss_ip')
+
         return fields
 
     def get_my_ip_address(self, o, network_name, parameter=None):

@@ -23,7 +23,7 @@
     line: "{{item.line}}"
     regexp: "{{item.regex}}"
   with_items:
-    - { regex: "{{ HSS_HOST }}", line: '{{ HSS_PRIVATE_IP }} {{ HSS_HOST }} {{ HSS_ALIAS }}' }
+    - { regex: "{{ HSS_HOST }}", line: '{{ HSS_S6A_IP }} {{ HSS_HOST }} {{ HSS_ALIAS }}' }
 
 - name: drop oai_db database
   mysql_db:
