@@ -33,6 +33,7 @@ class SyncVHSSTenant(SyncInstanceUsingAnsible):
         fields = {}
 
         fields['hss_s6a_ip'] = self.get_my_ip_address(o, 's6a_network', 's6a_hss_ip')
+        fields['mme_s6a_ip'] = self.get_ip_address_from_peer_service_instance('s6a_network', 'VMMETenant', o, 's6a_mme_ip')
 
         return fields
 

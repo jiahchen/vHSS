@@ -23,6 +23,7 @@
   gather_facts: no
   vars:
     - HSS_S6A_IP: {{ hss_s6a_ip }}
+    - MME_S6A_IP: {{ mme_s6a_ip }}
   roles:
     - hss-configure
     - setup-service

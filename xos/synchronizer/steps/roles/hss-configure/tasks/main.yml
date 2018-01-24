@@ -24,6 +24,7 @@
     regexp: "{{item.regex}}"
   with_items:
     - { regex: "{{ HSS_HOST }}", line: '{{ HSS_S6A_IP }} {{ HSS_HOST }} {{ HSS_ALIAS }}' }
+    - { regex: "{{ MME_HOST }}", line: '{{ MME_S6A_IP }} {{ MME_HOST }} {{ MME_ALIAS }}'}
 
 - name: drop oai_db database
   mysql_db:
