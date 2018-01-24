@@ -27,3 +27,7 @@
     name: oai_db
     state: import
     target: ~/oai_db.sql
+
+- name: set host name of hss
+  hostname:
+    name: "{{ HSS_ALIAS }}"
