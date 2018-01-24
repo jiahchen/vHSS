@@ -13,6 +13,18 @@
     - { src: 'hss.j2', dest: '/usr/local/etc/oai/hss.conf' }
     - { src: 'oai_db.j2', dest: '~/oai_db.sql'}
 
+- name: set host name of hss
+  hostname:
+    name: "{{ HSS_ALIAS }}"
+
+- name: set hosts
+  lineinfile:
+    name: /etc/hosts
+    line: "{{item.line}}"
+    regexp: "{{item.regex}}"
+  with_items:
+    - { regex: "{{ HSS_HOST }}", line: '{{ HSS_PRIVATE_IP }} {{ HSS_HOST }} {{ HSS_ALIAS }}' }
+
 - name: drop oai_db database
   mysql_db:
     login_user: root
@@ -27,7 +39,3 @@
     name: oai_db
     state: import
     target: ~/oai_db.sql
-
-- name: set host name of hss
-  hostname:
-    name: "{{ HSS_ALIAS }}"

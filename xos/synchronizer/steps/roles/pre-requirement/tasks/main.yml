@@ -1,7 +1,0 @@
-- name: Install Python 2
-  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-
-- name: install mysql for python
-  apt:
-    name: python-mysqldb
-    update_cache: yes
