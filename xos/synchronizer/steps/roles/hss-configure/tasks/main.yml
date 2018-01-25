@@ -1,9 +1,9 @@
-- name: create oai config directory
+- name: Create oai config directory
   file:
     path: /usr/local/etc/oai/freeDiameter
     state: directory
 
-- name: overwrite oai epc configs
+- name: Overwrite oai epc configs
   template:
     src: "{{item.src}}"
     dest: "{{item.dest}}"
@@ -13,11 +13,11 @@
     - { src: 'hss.j2', dest: '/usr/local/etc/oai/hss.conf' }
     - { src: 'oai_db.j2', dest: '~/oai_db.sql'}
 
-- name: set host name of hss
+- name: Set host name of hss
   hostname:
     name: "{{ HSS_ALIAS }}"
 
-- name: set hosts
+- name: Set hosts
   lineinfile:
     name: /etc/hosts
     line: "{{item.line}}"
@@ -26,14 +26,14 @@
     - { regex: "{{ HSS_HOST }}", line: '{{ HSS_S6A_IP }} {{ HSS_HOST }} {{ HSS_ALIAS }}' }
     - { regex: "{{ MME_HOST }}", line: '{{ MME_S6A_IP }} {{ MME_HOST }} {{ MME_ALIAS }}'}
 
-- name: drop oai_db database
+- name: Drop oai_db database
   mysql_db:
     login_user: root
     login_password: linux
     name: oai_db
     state: absent
 
-- name: import oai_db sql
+- name: Import oai_db sql
   mysql_db:
     login_user: root
     login_password: linux
